@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Clientes;
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+ Route::resource('ordenes', OrdenesController::class);
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -26,6 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::resource('clientes', ClientesController::class);
 });
 
 require __DIR__.'/auth.php';
